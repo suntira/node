@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/css/style.css">
+    <title>Blogs</title>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <header>
+                <ul class="menu">
+                    <li>
+                        <a href="blogs.html" class="active">Blog</a>
+                    </li>
+                    <li>
+                        <a href="works.html">Works</a>
+                    </li>
+                    <li>
+                        <a href="index.html">Contacts</a>
+                    </li>
+                </ul>
+                <button class="burger" onclick="toggleMenu()">
+                    <span class="line line-1"></span>
+                    <span class="line line-2"></span>
+                    <span class="line line-3"></span>
+                </button>
+            </header>
+            <section class="recent blogs">
+                <div class="container">
+                    <div class="recent-header section-header">
+                        <h2>Blog</h2>
+                    </div>
+                    {{#each posts}}
+                    <div class="recent-container">
+                        <div class="recent-card-container">
+                            <h3>{{this.title}}</h3>
+                            <div class="description">
+                                <p>{{this.data}}</p>
+                                <span class="line"></span>
+                                <p>{{this.tag}}</p>
+                            </div>
+                            <p>
+                                {{this.text}}
+                            </p>
+                        </div>
+                        <a href="update/{{this.id}}">изменить</a>   
+                        <a href="delete/{{this.id}}">Х</a>                        
+                    </div>
+                    {{/each}}
+                </div>
+            </section>
+           
+            <form action="/blogs" method="post">
+                <input type="hidden" name="id" value="{{posts.id}}">
+                <input type="text" name="name" placeholder="name" value="{{posts.title}}">
+                <input type="date" name="date" value="{{posts.data}}">
+                <input type="text" name="teg" placeholder="teg" value="{{posts.tag}}">
+                <input type="text" name="text" placeholder="text" value="{{posts.text}}">
+                <button type="submit">Save</button>
+            </form>
+        </div>
+
+        <footer>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <div class="vk"></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="ok"></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="tg"></div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <p>Copyright ©2020 All rights reserved</p>
+        </footer>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>scd
+</html>
