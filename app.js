@@ -70,7 +70,7 @@ app.post('/blogs', urlencoded, function(req, res) {
 
   
     Post.create({name: name, date: date, teg: teg, text: text}).then(() => {
-        bot.sendMessage(931357676,"Создано: "+name),
+        bot.sendMessage(631357676,"Создано: "+name),
         res.redirect('/blogs');  
     })
 });
@@ -82,7 +82,7 @@ app.get('/delete/:id', function(req, res){
             id: postsId
         }
     }).then(() => {
-        bot.sendMessage(931357676,"Удалено: "+postsId),
+        bot.sendMessage(631357676,"Удалено: "+postsId),
         res.redirect('/blogs');
     })
 });
@@ -100,7 +100,7 @@ app.post('/update',  urlencoded, function(req, res) {
             id: id
         }
     }).then(() => {
-        bot.sendMessage(931357676,"Обновлено: "+title),
+        bot.sendMessage(631357676,"Обновлено: "+title),
         res.redirect('/blogs');
     })
 });
